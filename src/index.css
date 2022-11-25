@@ -11,7 +11,7 @@ body{
 }
 
 .bg-body{
-    background-image: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.9)),  url("../src/assets/img/bg-body.jpg") ;
+    background-image: linear-gradient(rgba(0,0,0,.9), rgba(165, 6, 6, 0.77)),  url("../src/assets/img/bg-body.jpg") ;
     background-repeat: no-repeat;
     object-fit: cover;
     background-attachment: fixed;
