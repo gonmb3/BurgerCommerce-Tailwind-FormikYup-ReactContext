@@ -22,10 +22,10 @@ const ProductDetails = () => {
   const { name, price, description, imgSrc } = product;
   return (
 
-    <section className="h-screen flex justify-center items-center bg-details pt-20">
+    <section className="h-screen flex justify-center items-center bg-details py-20 ">
       <div className="container mx-auto">
 
-        <div className="flex flex-col lg:flex-row items-center  ">
+        <div className="flex flex-col lg:flex-row items-center pt-20  ">
         {/* image*/}
           <div className="flex flex-1 justify-center mb-8 lg:mb-0 ">
             <img className="md:max-w-[430px] max-w-[250px] floating" src={imgSrc} alt={name} />
@@ -36,14 +36,14 @@ const ProductDetails = () => {
                   {name}
                 </h1>
             <div className="text-4xl text-center font-bold pt-2 ">
-              ${price}.00
+              ${parseFloat(price).toFixed(2)}
             </div>
-            <p className="mt-10 font-bold px-5">{description} </p>
+            <p className="mt-2 font-bold px-5">{description} </p>
 
       {/* add to cart button */}
             <button 
             onClick={() => addToCart(product, product.id)}
-            className="mt-8 bg-red-600 font-bold uppercase p-2 rounded hover:bg-red-800">Add To Cart</button>
+            className="mt-8 bg-red-600 font-bold uppercase p-2  rounded hover:bg-red-800">Add To Cart</button>
           </div>
         </div>
       </div>
