@@ -12,11 +12,11 @@ import { useEffect } from 'react';
 
 const Header = () => {
     //header state
-    const [isActive, setIsActive] = useState(true);
+    const [isActive, setIsActive] = useState(false);
     
     useEffect(() => {
       window.addEventListener("scroll", () => {
-        window.scrollY > 80 ? setIsActive(true) : setIsActive(false)
+        window.scrollY > 200 ? setIsActive(true) : setIsActive(false)
       })
     }, [])
       
@@ -27,11 +27,11 @@ const Header = () => {
 
   return (
     <header className='fixed w-full z-10'>
-      <div className={`${isActive ? "bg-red-600" : "bg-black "} w-full flex justify-between items-center h-[80px] md:px-20 px-6 z-10 duration-700`}>
+      <div className={`${isActive ? "bg-red-600" : "bg-gray-900 "} w-full flex justify-between items-center h-[80px] md:px-20 px-6 z-10 duration-700`}>
         <Link to="/">
           <div className="flex items-center gap-2">
             <img src={logo} alt="logo-img" className='w-[55px]' />
-            <h4 className='font-bold text-white shadow-lg uppercase text-[16px]'>Trutru Burgers</h4>
+            <h4 className='font-bold text-white drop-shadow-lg uppercase text-[16px]'>Trutru Burgers</h4>
           </div>
         </Link>
 
@@ -49,9 +49,7 @@ const Header = () => {
 
       </div>
 
-      <div className="flex justify-center items-center bg-slate-50 p-2">
-    
-      </div>
+
 
     </header>
   )

@@ -1,5 +1,5 @@
 import { BsPlus, BsEyeFill } from "react-icons/bs"
-import { AiFillStar } from "react-icons/ai"
+
 import { Link } from "react-router-dom";
 import { useCartContext } from "../contexts/CartContext";
 

@@ -15,7 +15,7 @@ const Sidebar = () => {
   
   return (
     // sidebar open/close 
-    <div className={`${isOpen ? "right-0" : "-right-full"} "w-full bg-[#0f0f0f] fixed top-0  h-screen shadow-2xl md:w-[40vw] xl:max-w-[30vw] w-full transition-all duration-300 z-20 px-4 lg:px-[35vw]" `}>
+    <div className={`${isOpen ? "right-0" : "-right-full"} "w-full bg-gray-900 fixed top-0  h-screen shadow-2xl md:w-[40vw] xl:max-w-[30vw] w-full transition-all duration-300 z-20 px-4 lg:px-[35vw]" `}>
 
       <div className="flex items-center justify-between py-6 border-b">
         {/*items bag  *****/}

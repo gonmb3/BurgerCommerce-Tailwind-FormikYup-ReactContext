@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,900;1,500;1,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,15 +7,26 @@
 body{
     background-color: #0f0f0f;
     color: white;
+    font-family: 'Poppins', sans-serif;
 }
 
 .hero-bg{
-    background-image: url("../src//assets//img//bg-hero.jpg") ;
+    background-image: url("../src/assets/img//bg-hero.jpg") ;
     background-repeat: no-repeat;
     object-fit: cover;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-size: cover;
+}
+
+.bg-details{
+    background-image: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.8)), url("../src/assets/img/bg-details.jpg") ;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-attachment: fixed;
     background-position: center;
     background-size: cover;
-
+    opacity: .8;
 }
 
 .floating {
