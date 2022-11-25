@@ -1,6 +1,7 @@
 import { BsPlus, BsEyeFill } from "react-icons/bs"
+import {FaCheck} from "react-icons/fa"
 
-import { Link } from "react-router-dom";
+import { createSearchParams, Link } from "react-router-dom";
 import { useCartContext } from "../contexts/CartContext";
 
 const Product = ({ product }) => {
@@ -8,7 +9,7 @@ const Product = ({ product }) => {
   const { name, price, category, imgSrc, id } = product;
 
   // cart context
-  const { addToCart } = useCartContext();
+  const { addToCart, cart } = useCartContext();
 
 
   return (
@@ -33,7 +34,9 @@ const Product = ({ product }) => {
               onClick={() => addToCart(product, id)}
               className="flex justify-center items-center text-white w-8 h-8
                    bg-red-600 ">
-              <BsPlus color="white" size={22} />
+              {
+                cart ?   <BsPlus color="white" size={22} /> : (  <FaCheck size={20} /> )
+              }
             </div>
           </button>
           <Link
@@ -52,8 +55,6 @@ const Product = ({ product }) => {
         <div className="font-bold rounded-b-md bg-red-600 text-2xl mb-10 text-center py-3 text-white ">
           ${parseFloat(price).toFixed(2)}
         </div>
-
-
       </div>
     </div>
   )
