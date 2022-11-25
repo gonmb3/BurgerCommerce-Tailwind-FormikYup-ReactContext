@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    background-color: #0f0f0f;
+    color: white;
+}
+.floating {
+	animation: floating 2s ease-in-out infinite
+}
+@keyframes floating {
+	0% { transform: translateY(0); }
+	50% { transform: translateY(-16px); }
+	100% { transform: translateY(0); }
+}
