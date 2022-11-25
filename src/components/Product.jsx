@@ -12,7 +12,7 @@ const Product = ({ product }) => {
 
 
   return (
-    <div className="rounded">
+    <div className="rounded px-6">
       <div className='border border-gray-200 cursor-pointer rounded h-[300px] relative overflow-hidden group transition '>
         <div className="w-full h-full flex justify-center items-center">
           <div className="w-[200px] mx-auto flex justify-center items-center">
@@ -48,10 +48,9 @@ const Product = ({ product }) => {
         <div className="text-sm capitalize text-center  bg-red-600 text-white  font-bold p-1">
           {category}
         </div>
-        <h2 className="font-semi-bold bg-slate-100 p-1 text-2xl text-center text-black">{name}</h2>
-        <div className="font-bold rounded-b-md bg-red-600 text-1xl mb-10 text-center text-white ">
-          ${price}
-
+        <h2 className="font-semi-bold bg-slate-100 p-1 text-1xl text-center text-black">{name}</h2>
+        <div className="font-bold rounded-b-md bg-red-600 text-2xl mb-10 text-center py-3 text-white ">
+          ${parseFloat(price).toFixed(2)}
         </div>
 
 

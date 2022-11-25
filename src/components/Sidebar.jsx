@@ -10,9 +10,9 @@ const Sidebar = () => {
   //sidebar context
   const { isOpen, handleClose } = useSidebarContext();
   //cart context
-  const { cart, clearCart,total } = useCartContext();
+  const { cart, clearCart, total } = useCartContext();
 
-  
+
   return (
     // sidebar open/close 
     <div className={`${isOpen ? "right-0" : "-right-full"} "w-full bg-gray-900 fixed top-0  h-screen shadow-2xl md:w-[40vw] xl:max-w-[30vw] w-full transition-all duration-300 z-20 px-4 lg:px-[35vw]" `}>
@@ -28,16 +28,22 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className=" flex flex-col gap-y-1 h-[450px] overflow-y-auto ">
-        {
-          cart.map(product => (
-            <CartItem product={product} key={product.id} />
-          ))
-        }
-      </div>
+      {/* empty cart condition*/ }
+      {
+        cart.length === 0 ? (
+          <div className="flex justify-center h-[200px] items-center">Empty Cart!</div>
+        ) : (
+          <div className=" flex flex-col gap-y-1 h-[450px] overflow-y-auto ">
+            {
+              cart.map(product => (
+                <CartItem product={product} key={product.id} />
+              ))
+            }
+          </div>
+        )
+      }
 
-      <div className="bg-white flex w-full justify-between items-center text-black rounded-full mt-10">
-
+      <div className="bg-white flex w-full justify-between items-center text-black rounded-full mt-10 ">
         {/* total */}
         <div className="flex items-center">
           <span className="font-bold ml-2">Total:</span> <p className="font-bold ml-2 text-2xl">${parseFloat(total).toFixed(2)}</p>

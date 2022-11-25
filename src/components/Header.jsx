@@ -27,11 +27,11 @@ const Header = () => {
 
   return (
     <header className='fixed w-full z-10'>
-      <div className={`${isActive ? "bg-red-600" : "bg-gray-900 "} w-full flex justify-between items-center h-[80px] md:px-20 px-6 z-10 duration-700`}>
+      <div className={`${isActive ? "bg-red-600" : "bg-gray-900 "} w-full flex justify-between items-center h-[80px] md:px-20 px-5 z-10 duration-700`}>
         <Link to="/">
           <div className="flex items-center gap-2">
-            <img src={logo} alt="logo-img" className='w-[55px]' />
-            <h4 className='font-bold text-white drop-shadow-lg uppercase text-[16px]'>Trutru Burgers</h4>
+            <img src={logo} alt="logo-img" className='w-[40px]' />
+            <h4 className='font-bold text-white drop-shadow-lg uppercase text-[14px]'>Trutru Burgers</h4>
           </div>
         </Link>
 

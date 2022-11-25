@@ -53,9 +53,11 @@ const CartItem = ({ product }) => {
                     {/*  price X amount ****/}
                 </div>
                 <div className="font-bold flex  mx-[-10px]">
-                    {`$ ${price * amount}`}
+                ${parseFloat(price * amount).toFixed(2)}
                 </div>
             </div>
+
+         
 
 
 

@@ -22,13 +22,13 @@ const ProductDetails = () => {
   const { name, price, description, imgSrc } = product;
   return (
 
-    <section className="h-screen flex justify-center items-center bg-details">
+    <section className="h-screen flex justify-center items-center bg-details pt-20">
       <div className="container mx-auto">
 
         <div className="flex flex-col lg:flex-row items-center  ">
         {/* image*/}
           <div className="flex flex-1 justify-center mb-8 lg:mb-0 ">
-            <img className="md:max-w-[430px] max-w-[300px] floating" src={imgSrc} alt={name} />
+            <img className="md:max-w-[430px] max-w-[250px] floating" src={imgSrc} alt={name} />
           </div>
 
           <div className="flex-1 text-center lg:text-left ">
