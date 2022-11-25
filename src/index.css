@@ -7,6 +7,16 @@ body{
     background-color: #0f0f0f;
     color: white;
 }
+
+.hero-bg{
+    background-image: url("../src//assets//img//bg-hero.jpg") ;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+
+}
+
 .floating {
 	animation: floating 2s ease-in-out infinite
 }

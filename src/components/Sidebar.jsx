@@ -28,7 +28,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className=" flex flex-col gap-y-1 h-[300px] lg:-[640px] overflow-y-auto ">
+      <div className=" flex flex-col gap-y-1 h-[450px] overflow-y-auto ">
         {
           cart.map(product => (
             <CartItem product={product} key={product.id} />
