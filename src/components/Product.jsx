@@ -1,5 +1,5 @@
-import { BsPlus, BsEyeFill } from "react-icons/bs"
-import {FaCheck} from "react-icons/fa"
+import {  BsEyeFill } from "react-icons/bs"
+import {FaPlus} from "react-icons/fa"
 
 import { createSearchParams, Link } from "react-router-dom";
 import { useCartContext } from "../contexts/CartContext";
@@ -13,8 +13,8 @@ const Product = ({ product }) => {
 
 
   return (
-    <div className="rounded px-6">
-      <div className='border border-gray-200 cursor-pointer rounded h-[300px] relative overflow-hidden group transition '>
+    <div className="px-6">
+      <div className='border  border-gray-200 cursor-pointer rounded h-[300px] group relative overflow-hidden transition '>
         <div className="w-full h-full flex justify-center items-center">
           <div className="w-[200px] mx-auto flex justify-center items-center">
             <Link
@@ -25,22 +25,19 @@ const Product = ({ product }) => {
           </div>
         </div>
 
-        <div className="absolute top-2 -right-11   group-hover:right-1  p-2 flex flex-col 
-             items-center justify-center gap-y-2 text-white rounded opacity-0
-              group-hover:opacity-100 duration-300">
-          <button>
-            {/* add to cart *******/}
-            <div
-              onClick={() => addToCart(product, id)}
+        <div className="absolute top-2 right-0  p-2 flex 
+             items-center justify-center gap-y-2 text-white rounded opacity-100
+             ">
+          <button 
+          onClick={() => addToCart(product, id)}
               className="flex justify-center items-center text-white w-8 h-8
-                   bg-red-600 ">
-              {
-                cart ?   <BsPlus color="white" size={22} /> : (  <FaCheck size={20} /> )
-              }
-            </div>
+                   bg-red-600  rounded-full mr-2 hover:scale-90 duration-300"> 
+            {/* add to cart *******/}      
+                <FaPlus color="white" size={22} /> 
+             
           </button>
           <Link
-            className="w-8 h-8 bg-white flex justify-center items-center text-black drop-shadow-xl"
+            className="w-8 h-8 bg-white flex justify-center hover:scale-90 duration-300 items-center rounded-full text-gray-900 drop-shadow-xl"
             to={`/product/${id}`}>
             <BsEyeFill size={22} />
           </Link>
