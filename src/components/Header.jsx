@@ -27,9 +27,9 @@ const Header = () => {
 
   return (
     <header className='fixed w-full z-10'>
-      <div className={`${isActive ? "bg-gray-900" : " bg-red-600 "} w-full flex justify-between items-center h-[80px] md:px-20 px-5 z-10 duration-700`}>
+      <div  className={`${isActive ? "bg-gray-900" : " bg-red-600 "} w-full flex justify-between items-center h-[80px] md:px-20 px-5 z-10 duration-700`}>
         <Link to="/">
-          <div className="flex flex-col items-center ">
+          <div  className="flex flex-col items-center ">
             <img src={logo} alt="logo-img" className='w-[40px]' />
             <h4 className='font-bold text-white drop-shadow-lg uppercase text-[14px] mt-[-10px]'>Trutru Burgers</h4>
           </div>
@@ -37,7 +37,7 @@ const Header = () => {
 
             {/*cart */}
         <div
-          className="flex relative">
+          className="flex relative" >
           <AiOutlineShoppingCart
             onClick={() => setIsOpen(!isOpen)}
             className='cursor-pointer' size={26} />    

@@ -14,6 +14,7 @@ const Product = ({ product }) => {
 
   return (
     <div className="px-6">
+
       <div className='border  border-gray-200 cursor-pointer rounded h-[300px] group relative overflow-hidden transition '>
         <div className="w-full h-full flex justify-center items-center">
           <div className="w-[200px] mx-auto flex justify-center items-center">

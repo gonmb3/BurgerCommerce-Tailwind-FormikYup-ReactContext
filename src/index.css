@@ -10,6 +10,11 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+}
+
 .bg-body{
     background-image: linear-gradient(rgba(168, 14, 14, 0.87), rgba(105, 8, 8, 0.89)),  url("../src/assets/img/bg-body.jpg") ;
     background-repeat: no-repeat;
@@ -18,6 +23,8 @@ body{
     background-position: bottom;
     background-size: cover;  
 }
+
+
 
 .hero-bg{
     background-image: url("../src/assets/img//bg-hero.jpg") ;

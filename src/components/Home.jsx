@@ -1,37 +1,51 @@
-import React from 'react'
+import { useState } from 'react';
 import { useProductContext } from '../contexts/ProductContext'
 import Product from './Product';
 import Hero from './Hero';
-import BurgerForm from './BurgetForm';
+import BurgerForm from './Login';
+import FilterButtons from './FilterButtons';
+
+
 
 
 
 const Home = () => {
-    const {products} = useProductContext();
+    //products DATA
+    const { products } = useProductContext();
 
-    const filteredBurgerProducts = products.filter(product => {
-        return product.category === "burger" || product.category === "pizza" 
-      })
-       
-  return (
-    <>
-    <Hero/>
-    
-        <section className='py-16 mt-5'>
-            <div className="container mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-2 max-w-sm mx-auto md:max-w-none md:mx-0">
-                    {
-                        filteredBurgerProducts.map(product => (
-                            <Product product={product} key={product.id} />
-                        ))
-                    }
+    const [filtered, setFiltered] = useState(products)
+
+    const filterItem = (itemCategory) => {
+        const updateItems = products.filter((item) => {
+            return item.category === itemCategory
+        })
+        setFiltered(updateItems)
+    }
+
+
+    return (
+        <>
+            <Hero />
+
+            <section className='py-16 mt-5' >
+                <h1 className='text-center pb-5 md:text-4xl text-2xl uppercase tracking-widest text-white'>Menu</h1>
+                <div className="container mx-auto">
+
+                    <FilterButtons filterItem={filterItem} setFiltered={setFiltered} />
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 pt-10 gap-2 max-w-sm mx-auto md:max-w-none md:mx-0">
+                        {
+                            filtered.map(product => (
+                                <Product product={product} key={product.id} />
+                            ))
+                        }
+                    </div>
                 </div>
-            </div>
-         
-        </section>
-        <BurgerForm/>
-    </>
-  )
+
+            </section>
+           
+        </>
+    )
 }
 
 export default Home

@@ -23,35 +23,35 @@ const ProductDetails = () => {
   const { name, price, description, imgSrc } = product;
   return (
 
-    <section className="h-screen flex justify-center items-center  py-20 ">
+    <section className="h-screen flex justify-center  items-center  py-20 ">
       <div className="container mx-auto relative ">
 
         <div className="flex flex-col lg:flex-row items-center pt-20  ">
         {/* image*/}
           <div className="flex flex-1 justify-center mb-8 lg:mb-0 ">
-            <img className="md:max-w-[500px] max-w-[250px] floating" src={imgSrc} alt={name} />
+            <img className="md:max-w-[500px] max-w-[180px] floating" src={imgSrc} alt={name} />
           </div>
 
           <div className="flex-1 text-center lg:text-left ">
                 <h1 className="md:text-[40px] text-[20px] bg-red-600 text-center rounded p-1 font-medium mb-2 md:max-w-[450px] max-w-[300px] mx-auto">
                   {name}
                 </h1>
-            <div className="text-4xl text-center font-bold pt-2 ">
-              ${parseFloat(price).toFixed(2)}
+            <div className=" text-center  pt-2 ">
+             <span className="md:text-4xl  text-2xl"> ${parseFloat(price).toFixed(2)}</span>
             </div>
-            <p className="mt-2 font-bold px-5">{description} </p>
+            <p className="mt-2 text-[13px] text-white text-center font-thin px-5">{description} </p>
 
       {/* add to cart button */}
             <button 
             onClick={() => addToCart(product, product.id)}
-            className="mt-8 bg-red-600 font-bold uppercase p-2  rounded hover:bg-red-800">Add To Cart</button>
+            className="mt-4 bg-red-600 font-bold uppercase p-2  rounded hover:bg-red-800 mb-5">Add To Cart</button>
           </div>
         </div>
 
 
     <Link to="/">
-    <div className="absolute top-1 hover:scale-90 duration-300  right-5 cursor-pointer drop-shadow-lg bg-gray-900 p-2  rounded-full ">
-      <IoMdArrowRoundBack className="md:text-3xl text-2xl"  />
+      <div className="absolute top-5 hover:scale-90 duration-300  left-5 cursor-pointer drop-shadow-lg bg-gray-900 p-2  rounded-full ">
+         <IoMdArrowRoundBack className="md:text-3xl text-2xl"  />
       </div>
       
     </Link>
