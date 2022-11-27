@@ -44,7 +44,7 @@ const Product = ({ product }) => {
           <button
             onClick={() => addToCart(product, id)}
             className="flex justify-center items-center text-white w-8 h-8
-                   bg-red-600  rounded-full mr-2 hover:scale-90 duration-300">
+                   bg-red-600  rounded-full mr-2 hover:scale-90 duration-300 hover:bg-gray-600">
             {/* add to cart *******/}
             <FaPlus color="white" size={22} />
 
