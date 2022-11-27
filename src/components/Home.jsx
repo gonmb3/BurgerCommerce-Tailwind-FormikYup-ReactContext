@@ -33,7 +33,7 @@ const Home = () => {
 
                     <FilterButtons filterItem={filterItem} setFiltered={setFiltered} />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 pt-10 gap-2 max-w-sm mx-auto md:max-w-none md:mx-0">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-10 gap-2  mx-auto md:max-w-none md:mx-0">
                         {
                             filtered.map(product => (
                                 <Product product={product} key={product.id} />
