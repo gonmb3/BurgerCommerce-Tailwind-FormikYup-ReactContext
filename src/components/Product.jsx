@@ -14,7 +14,7 @@ const Product = ({ product }) => {
 
 
   return (
-    <div className="px-4 pb-1 hover:scale-[104%] duration-300">
+    <div className="px-4 pb-1 hover:scale-[104%] duration-300 ">
 
       <div className=' bg-slate-200 rounded-md cursor-pointer h-[130px] w-full group relative overflow-hidden transition '>
 
@@ -22,7 +22,7 @@ const Product = ({ product }) => {
             to={`/product/${id}`}
           >
         <div className="flex items-center h-full px-2">
-        <span className="absolute top-4 left-20 z-1 text-white bg-red-600 px-[3px] rounded-md text-[18px]">${parseFloat(price).toFixed(2)} </span>
+        <span className="absolute top-4 left-20 z-1 text-white bg-red-600 px-[3px] rounded-md text-[18px] drop-shadow-md">${parseFloat(price).toFixed(2)} </span>
         
             <img className="h-[70px] w-[70px] object-contain group-hover:scale-110 duration-300" src={imgSrc} alt={name} />
          
@@ -31,7 +31,10 @@ const Product = ({ product }) => {
 
         <div className="absolute bottom-0 right-0 w-15  flex flex-col text-center gap-y-2 px-8 py-1 rounded-lg">
 
-          <span className="text-gray-700 drop-shadow-lg flex justify-end items-center  capitalize text-sm">{category} - {ratings}<AiTwotoneStar size={20} className=" text-yellow-600" /> </span>
+          <span className="text-gray-700 drop-shadow-lg flex justify-end items-center  capitalize text-sm">
+            {category} - {ratings}
+            <AiTwotoneStar size={20} className=" text-yellow-600" /> 
+            </span>
 
           <div className="flex  text-center">   {/* name   */}
             <span className=" uppercase  text-red-600">{name} </span>
