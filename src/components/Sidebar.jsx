@@ -33,7 +33,7 @@ const Sidebar = () => {
         cart.length === 0 ? (
           <div className="flex justify-center h-[200px] items-center">Empty Cart!</div>
         ) : (
-          <div className=" flex flex-col gap-y-1 h-[450px] overflow-y-auto ">
+          <div className=" flex flex-col gap-y-1 h-[480px] overflow-y-auto ">
             {
               cart.map(product => (
                 <CartItem product={product} key={product.id} />
