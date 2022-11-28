@@ -14,7 +14,7 @@ const Product = ({ product }) => {
 
 
   return (
-    <div className="px-4 pb-1 hover:scale-[103%] duration-300">
+    <div className="px-4 pb-1 hover:scale-[104%] duration-300">
 
       <div className=' bg-slate-200 rounded-md cursor-pointer h-[130px] w-full group relative overflow-hidden transition '>
 
@@ -22,7 +22,7 @@ const Product = ({ product }) => {
             to={`/product/${id}`}
           >
         <div className="flex items-center h-full px-2">
-        <span className="absolute top-4 left-20 z-1 text-gray-900 text-[20px]">${parseFloat(price).toFixed(2)} </span>
+        <span className="absolute top-4 left-20 z-1 text-white bg-red-600 px-[3px] rounded-md text-[18px]">${parseFloat(price).toFixed(2)} </span>
         
             <img className="h-[70px] w-[70px] object-contain group-hover:scale-110 duration-300" src={imgSrc} alt={name} />
          
