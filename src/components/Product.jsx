@@ -14,7 +14,7 @@ const Product = ({ product }) => {
 
 
   return (
-    <div className="px-4 pb-1 hover:scale-[103%] duration-300  ">
+    <div className="px-4 pb-1 hover:scale-[103%] duration-300">
 
       <div className=' bg-slate-200 rounded-md cursor-pointer h-[130px] w-full group relative overflow-hidden transition '>
 

@@ -27,13 +27,13 @@ const Home = () => {
         <>
             <Hero />
 
-            <section className='py-8 mt-5' >
+            <section className='mt-5' >
                 <h1 className='text-center pb-5 md:text-4xl text-2xl uppercase tracking-widest text-white'>Menu</h1>
                 <div className="container mx-auto">
 
                     <FilterButtons filterItem={filterItem} products={products} setFiltered= {setFiltered}  />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-10 gap-2 mb-20  mx-auto md:max-w-none md:mx-0">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 pt-10 gap-2 mb-10  mx-auto md:max-w-none md:mx-0">
                         {
                             filtered.map(product => (
                                 <Product product={product} key={product.id} />
