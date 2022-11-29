@@ -9,15 +9,14 @@ import {
     
 } 
 from "firebase/auth";
+//firebase auth
 import { auth } from './../firebase/firebase';
-
-
 
 const AuthContext = createContext();
 
 
 const AuthProvider = ({children}) => {
-    const [user, setUser] = useState({})
+ const [user, setUser] = useState({})
 
     //create user firebase
     const createUser = (email, password) => {
@@ -42,8 +41,7 @@ const AuthProvider = ({children}) => {
            }   
     },[])
 
-      /* GOOGLE SIGN IN ******/
-
+      /* GOOGLE SIGN IN ****/
        const googleSignIn = async () =>{
         const provider = new GoogleAuthProvider();
           await signInWithPopup(auth,provider)

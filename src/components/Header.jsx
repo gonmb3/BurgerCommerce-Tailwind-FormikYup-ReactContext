@@ -52,7 +52,7 @@ const Header = () => {
       <div className={`${isActive ? "bg-gray-900" : " bg-red-600 "} w-full flex justify-between items-center h-[80px] md:px-20 px-5 z-10 duration-700`}>
         <Link to="/">
           <div className="flex  items-center ">
-            <img src={logo} alt="logo-img" className='w-[40px]' />
+            <img src={logo} alt="logo-img" className='w-[39px]' />
           </div>
         </Link>
 
