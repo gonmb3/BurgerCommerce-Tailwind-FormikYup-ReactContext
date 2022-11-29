@@ -1,17 +1,18 @@
-import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import Header from './components/Header';
 import Home from './components/Home'
-
 import ProductDetails from './components/ProductDetails';
 import Sidebar from './components/Sidebar';
 import Signup from './components/Signup';
 import Login from './components/Login';
 
+// protected routes
+import ProtectedRoutes from './components/ProtectedRoutes';
+
 //react toastify
 import { ToastContainer } from 'react-toastify';
-import ProtectedRoutes from './components/ProtectedRoutes';
+
 
 
 const App = () => {
