@@ -15,9 +15,8 @@ const App = () => {
     <div className='overflow-hidden'>
     <Header/>
     <Routes>
-
+      
       <Route path="/" element={<Home/>}/>
-
       <Route path="/product/:id" element={<ProductDetails/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/signup" element={<Signup/>}/>

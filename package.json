@@ -10,13 +10,16 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
+    "firebase": "^9.14.0",
     "formik": "^2.2.9",
     "formik-yup": "^0.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-google-button": "^0.7.2",
     "react-icons": "^4.6.0",
     "react-router-dom": "^6.4.3",
-    "swiper": "^8.4.5"
+    "swiper": "^8.4.5",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

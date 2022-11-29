@@ -1,5 +1,3 @@
-
-
 import { useFormik } from "formik" /* ---- FORMIK*/
 import { Link } from "react-router-dom"
 import * as Yup from "yup"               /* ---- YUP VALIDATION*/
@@ -19,7 +17,7 @@ const Login = () => {
    
   }
 
-  const { values, handleBlur, handleChange, handleSubmit, errors } = useFormik({
+  const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useFormik({
     validationSchema: valuesSchema,
     initialValues,
     onSubmit: (values, actions) => {
@@ -27,8 +25,12 @@ const Login = () => {
       console.log(values)
     }
   })
+  /*Validation Formik/Yup end -----------*/
 
 
+
+
+  
 
   return (
     <div className='w-[100vw] h-screen flex justify-center  items-center '>
@@ -44,7 +46,7 @@ const Login = () => {
         <div className="py-5 flex flex-col ">
      
           <div className='mb-5'>
-          <div className="text-[12px] text-red-600">{errors.email} </div>
+         {errors.email && touched.email ?  <div className="text-[12px] text-red-600">{errors.email} </div> : ""}
             <input
               value={values.email}
               onBlur={handleBlur}
@@ -57,7 +59,7 @@ const Login = () => {
           </div>
 
           <div className='mb-5'>
-          <div className="text-[12px] text-red-600">{errors.password} </div>
+          {errors.password && touched.password ? <div className="text-[12px] text-red-600">{errors.password} </div> : ""}
             <input
               value={values.password}
               onBlur={handleBlur}

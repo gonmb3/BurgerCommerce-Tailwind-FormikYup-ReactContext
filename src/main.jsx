@@ -3,17 +3,20 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './index.css'
-//product provider
+//product provider context
 import { ProductProvider } from './contexts/ProductContext'
-//sidebar provider
+//sidebar provider context
 import { SidebarProvider } from './contexts/SidebarContext'
-//cart provider
+//cart provider context
 import { CartProvider } from './contexts/CartContext'
+//auth provider context
+import { AuthProvider } from './contexts/AuthContext'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
+    <AuthProvider>
         <CartProvider>
               <SidebarProvider>
                   <ProductProvider>
@@ -21,6 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                   </ProductProvider>
             </SidebarProvider>
         </CartProvider>
+    </AuthProvider>    
     </BrowserRouter>
   </React.StrictMode>
 )
