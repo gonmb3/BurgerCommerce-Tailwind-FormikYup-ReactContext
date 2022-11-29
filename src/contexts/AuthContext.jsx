@@ -5,8 +5,7 @@ import {
     signInWithEmailAndPassword, 
     signOut,onAuthStateChanged,
     GoogleAuthProvider,
-    signInWithPopup,
-    signInWithRedirect
+    signInWithPopup
     
 } 
 from "firebase/auth";
@@ -47,7 +46,7 @@ const AuthProvider = ({children}) => {
 
        const googleSignIn = async () =>{
         const provider = new GoogleAuthProvider();
-          await signInWithRedirect(auth,provider)
+          await signInWithPopup(auth,provider)
           
         }
 
