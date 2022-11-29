@@ -63,7 +63,20 @@ const Header = () => {
 
             {/*if USER IS TRUE ? WELCOME (EMAIL) */}
 
-            {user && <p className='text-[11px] mr-2'> <p className='text-center'>Welcome!</p> {user.email}</p>}
+
+            {user && 
+                 <div className='text-[11px] flex items-center mr-2'> 
+                  <img className='w-10 rounded-full mr-5' src={user.photoURL} alt={user.email} /> 
+
+                 <div className="text-center">
+                   <p>Welcome!</p>
+                   <span>{user.email && user.email.slice(0,12)}..</span>
+                 </div>
+
+             </div>
+            }
+
+
           </div>
           {/*if USER IS TRUE ? LOGOUT BUTTON */}
 
@@ -80,17 +93,19 @@ const Header = () => {
               </Link>
             )}
 
-          <AiOutlineShoppingCart
-            onClick={() => setIsOpen(!isOpen)}
-            className='cursor-pointer' size={26} />
-          {/* amount badge*/}
-          {
-            user ? 
-                  <div className="bg-white text-black  absolute font-thin -top-3 -right-3 w-[20px] h-[20px] flex justify-center items-center text-center cursor-pointer  rounded-full">
-                  {itemAmount}
+             {
+              user ? (
+                <div className="">  {/*cart ******/}
+                <AiOutlineShoppingCart
+                    onClick={() => setIsOpen(!isOpen)}
+                    className='cursor-pointer' size={26} />
+                  {/* amount badge*/}
+                  <div className="bg-white text-black  absolute font-thin -top-2 -right-3 w-[20px] h-[20px] flex justify-center items-center text-center cursor-pointer  rounded-full">
+                    {itemAmount}
                   </div>
-                 :  "" 
-          }
+                </div>
+              ) : ""
+             }
         </div>
 
       </div>

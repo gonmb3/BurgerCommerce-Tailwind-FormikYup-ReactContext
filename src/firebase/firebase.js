@@ -3,15 +3,15 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-
-  apiKey: "AIzaSyB5kKPFKFePK1QURfExhNGgVMTfaKQeGs8",
-  authDomain: "burgers-ecommerce.firebaseapp.com",
-  projectId: "burgers-ecommerce",
-  storageBucket: "burgers-ecommerce.appspot.com",
-  messagingSenderId: "801455745475",
-  appId: "1:801455745475:web:8a4d2e8a53856e120df576"
+  apiKey: "AIzaSyAMgEHqilXOC38Tvv4llKdki6OybcjD76g",
+  authDomain: "ecommerce-burgers.firebaseapp.com",
+  projectId: "ecommerce-burgers",
+  storageBucket: "ecommerce-burgers.appspot.com",
+  messagingSenderId: "6578964734",
+  appId: "1:6578964734:web:90fdc1e345eb4b757afdaf"
 
 };
+
 
 
 const app = initializeApp(firebaseConfig);

@@ -15,7 +15,7 @@ import {  toast } from 'react-toastify';
 
 const SignUp = () => {
   // auth context
-  const {createUser} = useAuthContext();
+  const {createUser, googleSignIn} = useAuthContext();
 
   //react- router-dom hook
   const navigate = useNavigate();
@@ -37,6 +37,16 @@ const SignUp = () => {
 
   }
 
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn()
+      toast.success("Sign up success! Welcome!")
+      navigate("/")
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useFormik({
     validationSchema: valuesSchema,
     initialValues,
@@ -51,11 +61,10 @@ const SignUp = () => {
           toast.error("Sign up error!")
           console.log(error)
         }
+        
     }
   })
  /*Validation Formik/Yup end -----------*/
-
-
   return (
     <div className='w-[100vw] h-screen flex justify-center  items-center '>
 
@@ -134,6 +143,7 @@ const SignUp = () => {
           {/*GOOGLE BUTTON */}
           <div className="mx-auto mt-5 font-bold">
           <GoogleButton 
+          onClick={handleGoogleSignIn}
           type="dark"
           />
           </div>
