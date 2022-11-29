@@ -26,6 +26,10 @@ const AuthProvider = ({children}) => {
     }
 
 
+    //login
+    const logIn = async (email,password) => {
+        return signInWithEmailAndPassword(auth,email,password)
+    }
 
       //on auth state change
     useEffect(() => {
@@ -45,7 +49,8 @@ const AuthProvider = ({children}) => {
         value={{
             createUser,
             user,
-            logout
+            logout,
+            logIn
         }}
         >
             {children}

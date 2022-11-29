@@ -51,9 +51,8 @@ const Header = () => {
     <header className='fixed w-full z-10'>
       <div className={`${isActive ? "bg-gray-900" : " bg-red-600 "} w-full flex justify-between items-center h-[80px] md:px-20 px-5 z-10 duration-700`}>
         <Link to="/">
-          <div className="flex flex-col items-center ">
+          <div className="flex  items-center ">
             <img src={logo} alt="logo-img" className='w-[40px]' />
-            <h4 className='font-bold text-white drop-shadow-lg uppercase md:text-[15px] text-[12px] mt-[-10px]'>Trutru Burgers</h4>
           </div>
         </Link>
 
@@ -71,7 +70,7 @@ const Header = () => {
           {user ? <Link to="/">
                 <button
                 onClick={handleLogout}
-                  className='text-[11px] text-red-600 hover:bg-gray-800 px-2 py-1 rounded-sm shadow-lg bg-white'>
+                  className='md:text-[11px] text-[9px] text-red-600 hover:bg-gray-800 px-2 py-1 rounded-sm shadow-lg bg-white'>
                   LOGOUT
                 </button>
               </Link>
@@ -85,9 +84,13 @@ const Header = () => {
             onClick={() => setIsOpen(!isOpen)}
             className='cursor-pointer' size={26} />
           {/* amount badge*/}
-          <div className="bg-white text-black  absolute font-thin -top-3 -right-3 w-[20px] h-[20px] flex justify-center items-center text-center cursor-pointer  rounded-full">
-            {itemAmount}
-          </div>
+          {
+            user ? 
+                  <div className="bg-white text-black  absolute font-thin -top-3 -right-3 w-[20px] h-[20px] flex justify-center items-center text-center cursor-pointer  rounded-full">
+                  {itemAmount}
+                  </div>
+                 :  "" 
+          }
         </div>
 
       </div>

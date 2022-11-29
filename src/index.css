@@ -54,8 +54,3 @@ html{
 	100% { transform: translateY(0); }
 }
 
-button{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: bold;
-    font-size: 12px!important;
-}

@@ -12,6 +12,9 @@ import { CartProvider } from './contexts/CartContext'
 //auth provider context
 import { AuthProvider } from './contexts/AuthContext'
 
+// ract toastyfy
+import 'react-toastify/dist/ReactToastify.css';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

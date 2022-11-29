@@ -1,8 +1,19 @@
 import { useFormik } from "formik" /* ---- FORMIK*/
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import * as Yup from "yup"               /* ---- YUP VALIDATION*/
+// auth context
+import { useAuthContext } from "../contexts/AuthContext"
+
+//react-toastify
+import {  toast } from 'react-toastify';
 
 const Login = () => {
+  // auth context
+  const {logIn} = useAuthContext();
+
+  // react router dom hook
+  const navigate = useNavigate();
+  
 
   /*Validation Formik/Yup start -----------*/ /*   VALUES SCHEMA YUP  */
   const valuesSchema = Yup.object({
@@ -10,7 +21,7 @@ const Login = () => {
     password: Yup.string().min(6, "Min 6 characters").max(26, "Max. 26 characters").required("Please enter your password"),
   })
 
-  //initial values
+  //initial values formik
   const initialValues = {
     email: "",
     password:"",
@@ -20,9 +31,17 @@ const Login = () => {
   const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useFormik({
     validationSchema: valuesSchema,
     initialValues,
-    onSubmit: (values, actions) => {
-      actions.resetForm();
-      console.log(values)
+    onSubmit: async (values, actions) => {
+      // FIREBASE LOGIN FUNCTION
+        try { 
+          await logIn(values.email, values.password)
+          toast.success("Login success! Welcome!")
+          navigate("/")
+          actions.resetForm();
+        } catch (error) {
+          toast.error("Login error, you don´t have an account!")
+          console.log(error)
+        }
     }
   })
   /*Validation Formik/Yup end -----------*/

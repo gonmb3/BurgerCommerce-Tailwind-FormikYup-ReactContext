@@ -1,5 +1,3 @@
-import { useState } from 'react'; //react state
-
 import { useAuthContext } from "../contexts/AuthContext" // auth context
 
 import { useFormik } from "formik" /* ---- FORMIK*/
@@ -9,6 +7,9 @@ import { Link, useNavigate } from "react-router-dom" // react router dom
 import * as Yup from "yup"               /* ---- YUP VALIDATION*/
 
 import GoogleButton from 'react-google-button' // google button
+
+//react-toastify
+import {  toast } from 'react-toastify';
 
 
 
@@ -43,9 +44,11 @@ const SignUp = () => {
       // FIREBASE CREATE USER FUNCTION
         try { 
           await createUser(values.email, values.password)
+          toast.success("Sign up success! Welcome!")
           navigate("/")
           actions.resetForm();
         } catch (error) {
+          toast.error("Sign up error!")
           console.log(error)
         }
     }
