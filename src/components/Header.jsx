@@ -58,28 +58,23 @@ const Header = () => {
 
         {/*cart */}
         <div className="flex relative gap-x-2 items-center" >
-
           <div className="">
 
             {/*if USER IS TRUE ? WELCOME (EMAIL) */}
-
-
             {user && 
                  <div className='text-[11px] flex items-center mr-2'> 
-                  <img className='w-10 rounded-full mr-5' src={user.photoURL} alt={user.email} /> 
-
+                 {/*if photo exists.....*/}
+                 {
+                  user.photoURL ?  <img className='w-7 rounded-full mr-2' src={user.photoURL} alt={""} /> : ""
+                 }
                  <div className="text-center">
                    <p>Welcome!</p>
                    <span>{user.email && user.email.slice(0,12)}..</span>
                  </div>
-
              </div>
             }
-
-
           </div>
           {/*if USER IS TRUE ? LOGOUT BUTTON */}
-
           {user ? <Link to="/">
                 <button
                 onClick={handleLogout}
