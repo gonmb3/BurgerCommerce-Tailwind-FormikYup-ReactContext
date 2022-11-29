@@ -44,7 +44,7 @@ const AuthProvider = ({children}) => {
       /* GOOGLE SIGN IN ****/
        const googleSignIn = async () =>{
         const provider = new GoogleAuthProvider();
-          await signInWithRedirect (auth,provider)
+          await signInWithRedirect(auth,provider)
           
         }
 
