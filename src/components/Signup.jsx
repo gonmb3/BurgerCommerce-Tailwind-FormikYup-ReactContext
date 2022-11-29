@@ -10,12 +10,13 @@ import GoogleButton from 'react-google-button' // google button
 
 //react-toastify
 import {  toast } from 'react-toastify';
+import Spinner from "./Spinner"
 
 
 
 const SignUp = () => {
   // auth context
-  const {createUser, googleSignIn} = useAuthContext();
+  const {createUser, googleSignIn, setLoading , loading} = useAuthContext();
 
   //react- router-dom hook
   const navigate = useNavigate();
@@ -39,10 +40,13 @@ const SignUp = () => {
 
   const handleGoogleSignIn = async () => {
     try {
+      setLoading(true)
       await googleSignIn()
       toast.success("Sign up success! Welcome!")
       navigate("/")
+      setLoading(false)
     } catch (error) {
+      setLoading(false)
       console.log(error)
     }
   }
@@ -53,11 +57,14 @@ const SignUp = () => {
     onSubmit: async (values, actions) => {
       // FIREBASE CREATE USER FUNCTION
         try { 
+          setLoading(true)
           await createUser(values.email, values.password)
           toast.success("Sign up success! Welcome!")
           navigate("/")
+          setLoading(false)
           actions.resetForm();
         } catch (error) {
+          setLoading(false)
           toast.error("Sign up error!")
           console.log(error)
         }
@@ -69,7 +76,9 @@ const SignUp = () => {
     <div className='w-[100vw] h-screen flex justify-center  items-center '>
 
       { /* FORM SUBMIT*/}
-      <form
+      {
+        loading ? <Spinner/> : (
+          <form
         autoComplete="off"
         className='md:max-w-[400px]  text-white py-10  bg-gray-800 px-4 shadow-lg rounded-md border-2'
         onSubmit={handleSubmit}>
@@ -156,6 +165,8 @@ const SignUp = () => {
           </p>
         </div>
       </form>
+        )
+      }
 
     </div>
   )

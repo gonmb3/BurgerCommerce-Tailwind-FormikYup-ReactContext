@@ -41,7 +41,7 @@ const Header = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      navigate("/")
+      navigate("/login")
     } catch (error) {
       console.log(error)
     }

@@ -10,7 +10,7 @@ const Product = ({ product }) => {
   const { name, price, category, imgSrc, id , ratings} = product;
 
   // cart context
-  const { addToCart, cart } = useCartContext();
+  const { addToCart } = useCartContext();
 
 
   return (
@@ -22,10 +22,11 @@ const Product = ({ product }) => {
             to={`/product/${id}`}
           >
         <div className="flex items-center h-full px-2">
-        <span className="absolute top-4 left-20 z-1 text-white bg-red-600 px-[3px] rounded-md text-[18px] drop-shadow-md">${parseFloat(price).toFixed(2)} </span>
-        
-            <img className="h-[70px] w-[70px] object-contain group-hover:scale-110 duration-300" src={imgSrc} alt={name} />
-         
+
+        <span className="absolute top-4 left-20 z-1 text-white bg-red-600 px-[3px] rounded-md text-[18px] drop-shadow-md">
+          ${parseFloat(price).toFixed(2)}
+          </span>     
+           <img className="h-[70px] w-[70px] object-contain group-hover:scale-110 duration-300" src={imgSrc} alt={name} /> 
         </div>
         </Link>
 

@@ -12,11 +12,16 @@ from "firebase/auth";
 //firebase auth
 import { auth } from './../firebase/firebase';
 
+
+
 const AuthContext = createContext();
 
 
 const AuthProvider = ({children}) => {
- const [user, setUser] = useState({})
+ const [user, setUser] = useState({});
+ const [loading, setLoading] = useState(false);
+
+
 
     //create user firebase
     const createUser = (email, password) => {
@@ -56,6 +61,8 @@ const AuthProvider = ({children}) => {
             logout,
             logIn,
             googleSignIn,
+            setLoading,
+            loading
           
         }}
         >
