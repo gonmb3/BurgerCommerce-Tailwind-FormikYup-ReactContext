@@ -11,13 +11,15 @@ import imgPaymants from "../assets/img/img-paymant.png" //img
 import uruFlag from "../assets/img/uruguay-flag.jpg" //img
 
 import Swal from 'sweetalert2' // sweetalert2
+import Spinner from './Spinner';
 
 
 const Checkout = () => {
     
     const [paymant, setPaymant] = useState(false)
 
-    const { total, setCart, cart } = useCartContext();
+    const { total, setCart } = useCartContext();
+
     const shipping = 5;
 
     const navigate = useNavigate();
@@ -41,11 +43,11 @@ const Checkout = () => {
     // YUP VALUES SCHEMA
     const valuesSchema = Yup.object({
     name: Yup.string().min(5).max(26, "Max. 26 characters").required(),
-    card: Yup.number().max(16).min(16).required(),
-    date: Yup.number().required().min(4).max(4),
-    phone: Yup.string().required("Please repit password").oneOf([Yup.ref("password"), null], "Password don´t matched").min(6, "Min 6 characters").max(26, "Max. 26 characters"),
-    address: Yup.string().required("Please enter your password").min(6, "Min 6 characters").max(26, "Max. 26 characters"),
-    cvc: Yup.number().required().min(4).max(4),
+    card: Yup.number().positive().min(15).required(),
+    date: Yup.number().positive().required().min(3),
+    phone: Yup.number().positive().required().min(8),
+    address: Yup.string().required().min(6),
+    cvc: Yup.number().positive().required().min(3),
 })
 
 
@@ -66,9 +68,14 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
     validationSchema: valuesSchema,
     initialValues,
     onSubmit:  (values, actions) => {
-        console.log(values)
-        
+        paymantSuccesAlert(setTimeout(() => {
+            navigate("/")
+          
+        }, 3150))   
+        console.log(values)  
+        actions.resetForm();   
     }
+   
   })
  
     return (
@@ -89,7 +96,7 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
                          type="text" 
                         id="name" 
                         name="name"
-                        className={`${errors.name && touched.name ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3   pl-11 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10 focus:border-blue-500 focus:ring-blue-500 ` }
+                        className={`${errors.name && touched.name ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3  pl-2 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
                            placeholder="Full Name" 
                         />
                         <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
@@ -109,7 +116,7 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
                             type="text" 
                             id="card" 
                             name="card"
-                            className={`${errors.card && touched.card ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3   pl-11 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10 focus:border-blue-500 focus:ring-blue-500 ` }
+                            className={`${errors.card && touched.card ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3  pl-8 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
                               placeholder="xxxx-xxxx-xxxx-xxxx" 
                             />
 
@@ -127,22 +134,23 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
                          onChange={handleChange}
                         type="text" 
                         name="date" 
-                        className={`${errors.date && touched.date ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3   pl-11 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10 focus:border-blue-500 focus:ring-blue-500 ` }
+                        className={`${errors.date && touched.date ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3  pl-2 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
                          placeholder="MM/YY"
                           />
+
                         <input 
                          value={values.cvc}
                          onBlur={handleBlur}
                          onChange={handleChange}
                         type="text" 
                         name="cvc"
-                        className={`${errors.cvc && touched.cvc ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3   pl-11 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10 focus:border-blue-500 focus:ring-blue-500 ` }
+                        className={`${errors.cvc && touched.cvc ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3  pl-2 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
                           placeholder="CVC" 
                           />
                     </div>
 
                     <div className="flex flex-col sm:flex-row mt-5">
-                        <div className="relative flex-shrink-0 mr-2 sm:w-7/12">
+                        <div className="relative flex-shrink-0 md:mr-2 sm:w-7/12 md:mb-0 mb-2 ">
                             <input
                              value={values.address}
                              onBlur={handleBlur}
@@ -150,7 +158,7 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
                              type="text"
                               id="address" 
                               name="address" 
-                              className={`${errors.address && touched.address ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3   pl-11 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10 focus:border-blue-500 focus:ring-blue-500 ` }
+                              className={`${errors.address && touched.address ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3  pl-11 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
                                placeholder="Address" 
                                />
                             <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
@@ -166,8 +174,8 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
                              type="text"
                               id="phone" 
                               name="phone" 
-                              className={`${errors.phone && touched.phone ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3   pl-11 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10 focus:border-blue-500 focus:ring-blue-500 ` }
-                               placeholder="Phone Number" 
+                              className={`${errors.phone && touched.phone ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3  pl-2 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
+                             placeholder="Phone Number" 
                             />
                             
                                
@@ -190,9 +198,6 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
                 </div>
                 <button
                 type='submit'
-                    onClick={() => paymantSuccesAlert(setTimeout(() => {
-                        navigate("/")
-                    }, 3150)) }
                     className="mt-4 mb-8 w-[50%] rounded-md bg-green-900 hover:bg-red-600 duration-300 px-6 py-3 font-medium text-white">
                     PAY
                 </button>

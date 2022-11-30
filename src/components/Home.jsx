@@ -26,7 +26,7 @@ const Home = () => {
         <>
             <Hero />
 
-            <section className='mt-5 h- ' >
+            <section className='mt-5 h-full' >
                 <h1 className='text-center pb-5 md:text-4xl text-2xl uppercase tracking-widest text-white'>Menú</h1>
                 <div className="container mx-auto">
 
