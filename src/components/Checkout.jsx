@@ -3,30 +3,35 @@ import { useCartContext } from '../contexts/CartContext';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
+import imgPaymants from "../assets/img/img-paymant.png"
+import uruFlag from "../assets/img/uruguay-flag.jpg"
+import { useState } from 'react';
+
 
 const Checkout = () => {
+    
+    const [paymant, setPaymant] = useState(false)
 
-    const { total } = useCartContext();
+    const { total, setCart, cart } = useCartContext();
     const shipping = 5;
-    const paymant = true;
 
     const navigate = useNavigate();
 
     const paymantSuccesAlert = () => {
-
+        setPaymant(true)
         Swal.fire({
             position: 'center',
             width: "250px",
             icon: 'success',
-            title: 'Payment Successful! Your Order Arrives Soon!',
+            title: 'Payment Successful! Your Food Arrives Soon!',
             showConfirmButton: false,
             timer: 3000
         })
+        setCart([])
+        setPaymant(false)
+}
 
-    }
-
-
-
+ 
     return (
 
         <div className='h-screen w-full flex justify-center items-center text-center z-20 '>
@@ -36,14 +41,14 @@ const Checkout = () => {
                 <div className="">
 
                     <div className="relative mt-5">
-                        <input type="text" id="card-holder" name="card-holder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-2 text-sm uppercase shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Full Name" />
+                        <input type="text" id="card-holder" name="card-holder" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-2 text-sm  shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Full Name" />
                         <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24">
                                 <path d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
                             </svg>
                         </div>
                     </div>
-                    <img src="/src/assets/img/img-paymant.png" alt="" className='w-[110px] h-5  object-cover my-2 ' />
+                    <img src={imgPaymants} alt="img-paymant" className='w-[110px] h-5  object-cover my-2 ' />
                     <div className="flex gap-2">
                         <div className="relative w-7/12 flex-shrink-0">
 
@@ -63,7 +68,8 @@ const Checkout = () => {
                         <div className="relative flex-shrink-0 sm:w-7/12">
                             <input type="text" id="billing-address" name="billing-address" className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Address" />
                             <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
-                                <img className="h-6 w-6 object-contain" src="/src/assets/img/uruguay-flag.jpg" alt="" />
+
+                                <img src={uruFlag} alt="uy-img-adress" className='w-7 r object-cover my-2 ' />
                             </div>
                         </div>
                     </div>

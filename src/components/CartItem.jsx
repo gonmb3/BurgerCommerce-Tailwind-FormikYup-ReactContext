@@ -18,13 +18,13 @@ const CartItem = ({ product }) => {
                 {/* image ****/}
                 <Link to={`product/${id}`}>
                     <div className=" flex items-cemter ">
-                        <img src={imgSrc} alt="img-food" className='min-w-[80px] w-[80px] h-[70px] object-contain ' />
+                        <img src={imgSrc} alt="img-food" className='min-w-[60px] w-[60px] h-[70px] object-contain ' />
                     </div>
                 </Link>
 
                 {/* title ***/}
                 <div className="">
-                    <p className='text-sm uppercase font-bold max-w-[240px] text-primary  bg-white text-black p-1 rounded'>{name}</p>
+                    <p className='text-[11px] uppercase font-bold max-w-[240px] text-primary  bg-white text-red-700 p-1 rounded'>{name}</p>
                 </div>
 
                 {/*remove icon ****/}

@@ -102,7 +102,8 @@ const CartProvider = ({children}) => {
           increaseAmount,
           decreaseAmount,
           itemAmount,
-          total
+          total,
+          setCart
         }}
         >
             {children}

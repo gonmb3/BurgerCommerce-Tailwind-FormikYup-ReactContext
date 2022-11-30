@@ -23,7 +23,7 @@ const App = () => {
       <ToastContainer
       theme="dark"
       autoClose={500}
-      position="bottom-right"
+      position="top-right"
       style={{width:"180px", fontSize:"12px"}}
       />
            {/*header component*/}

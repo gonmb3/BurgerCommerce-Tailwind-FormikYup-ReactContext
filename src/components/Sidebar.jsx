@@ -16,7 +16,8 @@ const Sidebar = () => {
 
   return (
     // sidebar open/close 
-    <div className={`${isOpen ? "right-0" : "-right-full"} "w-full bg-gray-900 fixed top-0  h-screen shadow-2xl md:w-[40vw] xl:max-w-[30vw] w-full transition-all duration-300 z-20 px-4 lg:px-[35vw]" `}>
+    <div className={`${isOpen ? "right-0" : "-right-full"} "w-full bg-gray-900 fixed top-0 
+     h-screen shadow-2xl md:w-[40vw] xl:max-w-[30vw] w-[70vw] transition-all duration-300 z-20 px-4 " `}>
 
       <div className="flex items-center justify-between py-6 border-b">
         {/*items bag  *****/}
@@ -45,7 +46,7 @@ const Sidebar = () => {
 
             <Link to="/checkout">
             <div className="flex cursor-pointer justify-center items-center mt-5 p-2 bg-green-800 hover:bg-red-600 duration-300 w-[50%] mx-auto rounded-md">
-                  <button className=" ">CHECKOUT</button>
+                  <button className="text-[14px] ">CHECKOUT</button>
                </div>
             </Link>
               {/* total ******/}
