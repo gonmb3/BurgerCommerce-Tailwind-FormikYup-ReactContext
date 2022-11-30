@@ -5,6 +5,8 @@ import {AiTwotoneStar} from "react-icons/ai"
 import {  Link } from "react-router-dom";
 import { useCartContext } from "../contexts/CartContext";
 
+import { toast } from 'react-toastify';
+
 const Product = ({ product }) => {
   // destructure product
   const { name, price, category, imgSrc, id , ratings} = product;
@@ -31,7 +33,9 @@ const Product = ({ product }) => {
         </Link>
 
         <div className="absolute bottom-0 right-0 w-15  flex flex-col text-center gap-y-2 px-8 py-1 rounded-lg">
-
+        <Link
+            to={`/product/${id}`}
+          >
           <span className="text-gray-700 drop-shadow-lg flex justify-end items-center  capitalize text-sm">
             {category} - {ratings}
             <AiTwotoneStar size={20} className=" text-yellow-600" /> 
@@ -41,31 +45,29 @@ const Product = ({ product }) => {
             <span className=" uppercase  text-red-600">{name} </span>
            
           </div>
-
+          </Link>
         </div>
 
         <div className="absolute top-0 right-0  p-2 flex 
              items-center justify-center gap-y-2 text-white rounded opacity-100
              ">
           <button
-            onClick={() => addToCart(product, id)}
+            onClick={() => addToCart(product, id, toast.success(`${name} added!`)) }
             className="flex justify-center  items-center text-white w-6 h-6
-                   bg-red-600  rounded-full mr-2 hover:scale-90 duration-300 hover:bg-gray-600">
+                   bg-red-600  rounded-full mr-2 hover:scale-95 duration-300 hover:bg-gray-600 focus:bg-green-700">
             {/* add to cart *******/}
             <FaPlus color="white"  />
 
           </button>
           <Link
-            className="w-6 h-6 bg-white flex justify-center hover:scale-90 duration-300 hover:bg-gray-600 items-center rounded-full text-gray-900 drop-shadow-xl"
+            className="w-6 h-6 bg-white flex justify-center 
+            hover:scale-95 duration-300 hover:bg-gray-300
+             items-center rounded-full text-gray-900 drop-shadow-xl"
             to={`/product/${id}`}>
             <BsEyeFill  />
           </Link>
         </div>
-
-
-
-
-      </div>
+     </div>
 
 
 

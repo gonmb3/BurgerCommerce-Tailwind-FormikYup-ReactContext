@@ -25,12 +25,12 @@ html{
 }
 
 
-
 .hero-bg{
-    background-image: linear-gradient(rgba(14, 14, 14, .5), rgba(7, 7, 7, 0.7)),  url("../src/assets/img//bg-hero.jpg") ;
+    background-image: linear-gradient(rgba(14, 14, 14, .7), rgba(7, 7, 7, 0.8)),  url("../src/assets/img//bg-hero.jpg") ;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: bottom  ;
+    background-position: top ;
+    object-fit: cover;
     background-size: cover;
     
 }

@@ -1,5 +1,6 @@
 import { FaRegTrashAlt } from "react-icons/fa";
 import { IoMdCloseCircleOutline } from "react-icons/io"
+import { Link } from "react-router-dom";
 import { useCartContext } from "../contexts/CartContext";
 
 import { useSidebarContext } from "../contexts/SidebarContext"
@@ -28,31 +29,43 @@ const Sidebar = () => {
         </div>
       </div>
 
-      {/* empty cart condition*/ }
+      {/* empty cart condition*/}
       {
         cart.length === 0 ? (
           <div className="flex justify-center h-[200px] items-center">Empty Cart!</div>
         ) : (
-          <div className=" flex flex-col gap-y-1 h-[480px] overflow-y-auto ">
-            {
-              cart.map(product => (
-                <CartItem product={product} key={product.id} />
-              ))
-            }
-          </div>
+          <>
+            <div className=" flex flex-col gap-y-1 h-[480px] overflow-y-auto ">
+              {
+                cart.map(product => (
+                  <CartItem product={product} key={product.id} />
+                ))
+              }
+            </div>
+
+            <Link to="/checkout">
+            <div className="flex cursor-pointer justify-center items-center mt-5 p-2 bg-green-800 hover:bg-red-600 duration-300 w-[50%] mx-auto rounded-md">
+                  <button className=" ">CHECKOUT</button>
+               </div>
+            </Link>
+              {/* total ******/}
+            <div className="bg-white flex w-full justify-between items-center text-black rounded-full mt-10 ">   
+              
+              <div className="flex items-center">
+                <span className="font-bold ml-2">Total:</span> <p className="font-bold ml-2 text-2xl">${parseFloat(total).toFixed(2)}</p>
+              </div>
+
+              <div className="cursor-pointer bg-red-600 hover:bg-red-700 text-white p-3 m-[1px] rounded-full ">
+                <FaRegTrashAlt
+                  onClick={() => clearCart()} />
+              </div>
+            </div>
+
+          </>
         )
       }
 
-      <div className="bg-white flex w-full justify-between items-center text-black rounded-full mt-10 ">
-        {/* total */}
-        <div className="flex items-center">
-          <span className="font-bold ml-2">Total:</span> <p className="font-bold ml-2 text-2xl">${parseFloat(total).toFixed(2)}</p>
-        </div>
-        <div className="cursor-pointer bg-red-600 hover:bg-red-700 text-white p-3 m-[1px] rounded-full ">
-          <FaRegTrashAlt
-            onClick={() => clearCart()} />
-        </div>
-      </div>
+
     </div>
   )
 }

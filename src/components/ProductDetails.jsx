@@ -4,6 +4,9 @@ import { useCartContext } from "../contexts/CartContext";
 import { useProductContext } from "../contexts/ProductContext";
 import {IoMdArrowRoundBack} from "react-icons/io"
 
+import { toast } from 'react-toastify';
+
+
 const ProductDetails = () => {
   const { id } = useParams();
   const { products } = useProductContext();
@@ -43,7 +46,7 @@ const ProductDetails = () => {
 
       {/* add to cart button */}
             <button 
-            onClick={() => addToCart(product, product.id)}
+            onClick={() => addToCart(product, product.id, toast.success(`${name} added!`))}
             className="mt-4 bg-red-600 font-bold uppercase p-2  rounded hover:bg-red-800 mb-5">Add To Cart</button>
           </div>
         </div>

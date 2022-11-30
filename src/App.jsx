@@ -12,6 +12,7 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 
 //react toastify
 import { ToastContainer } from 'react-toastify';
+import Checkout from './components/Checkout';
 
 
 
@@ -21,8 +22,9 @@ const App = () => {
       {/*toastify*/}
       <ToastContainer
       theme="dark"
-      autoClose={2000}
+      autoClose={500}
       position="bottom-right"
+      style={{width:"180px", fontSize:"12px"}}
       />
            {/*header component*/}
        <Header/>
@@ -31,6 +33,7 @@ const App = () => {
 
             <Route path="/" element={<ProtectedRoutes> <Home/> </ProtectedRoutes> }/>
             <Route path="/product/:id" element={<ProtectedRoutes>   <ProductDetails/> </ProtectedRoutes> }/>
+            <Route path="/checkout" element={<ProtectedRoutes>   <Checkout/> </ProtectedRoutes> }/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/signup" element={<Signup/>}/>
             
