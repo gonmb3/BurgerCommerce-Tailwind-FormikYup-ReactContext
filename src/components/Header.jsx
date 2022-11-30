@@ -90,14 +90,19 @@ const Header = () => {
 
              {
               user ? (
-                <div className="">  {/*cart ******/}
-                <AiOutlineShoppingCart
-                    onClick={() => setIsOpen(!isOpen)}
-                    className='cursor-pointer' size={26} />
+                <div className=""> 
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                       <AiOutlineShoppingCart className='cursor-pointer' size={26} />
                   {/* amount badge*/}
-                  <div className="bg-white text-black  absolute font-thin -top-2 -right-3 w-[20px] h-[20px] flex justify-center items-center text-center cursor-pointer  rounded-full">
+                  <div className="bg-white text-black  absolute font-thin -top-3 -right-3 w-[20px]
+                   h-[20px] flex justify-center items-center text-center cursor-pointer text-[12px]  rounded-full">
                     {itemAmount}
                   </div>
+
+                </button> {/*cart ******/}
+            
                 </div>
               ) : ""
              }

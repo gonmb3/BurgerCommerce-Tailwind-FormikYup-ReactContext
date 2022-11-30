@@ -1,15 +1,15 @@
 import { useAuthContext } from "../contexts/AuthContext" // auth context
 
 import { useFormik } from "formik" /* ---- FORMIK*/
+import * as Yup from "yup"               /* ---- YUP VALIDATION*/
 
 import { Link, useNavigate } from "react-router-dom" // react router dom
 
-import * as Yup from "yup"               /* ---- YUP VALIDATION*/
 
 import GoogleButton from 'react-google-button' // google button
 
 //react-toastify
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Spinner from "./Spinner"
 
 
@@ -78,7 +78,7 @@ const SignUp = () => {
       { /* FORM SUBMIT*/}
       {
         loading ? <Spinner/> : (
-          <form
+     <form
         autoComplete="off"
         className='md:max-w-[400px]  text-white py-10  bg-gray-800 px-4 shadow-lg rounded-md border-2'
         onSubmit={handleSubmit}>

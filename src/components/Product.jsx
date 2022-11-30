@@ -52,7 +52,7 @@ const Product = ({ product }) => {
              items-center justify-center gap-y-2 text-white rounded opacity-100
              ">
           <button
-            onClick={() => addToCart(product, id, toast.success(`${name} added!`)) }
+            onClick={() => addToCart(product, id, toast.success(`${name} ADDED!`)) }
             className="flex justify-center  items-center text-white w-6 h-6
                    bg-red-600  rounded-full mr-2 hover:scale-95 duration-300 hover:bg-gray-600 focus:bg-green-700">
             {/* add to cart *******/}

@@ -46,7 +46,7 @@ const ProductDetails = () => {
 
       {/* add to cart button */}
             <button 
-            onClick={() => addToCart(product, product.id, toast.success(`${name} added!`))}
+            onClick={() => addToCart(product, product.id, toast.success(`${name} ADDED!`))}
             className="mt-4 bg-red-600 font-bold uppercase p-2  rounded hover:bg-red-800 mb-5">Add To Cart</button>
           </div>
         </div>
