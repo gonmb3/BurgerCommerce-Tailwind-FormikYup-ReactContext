@@ -11,7 +11,7 @@ import imgPaymants from "../assets/img/img-paymant.png" //img
 import uruFlag from "../assets/img/uruguay-flag.jpg" //img
 
 import Swal from 'sweetalert2' // sweetalert2
-import Spinner from './Spinner';
+import Spinner from '../components/Spinner';
 
 
 const Checkout = () => {
@@ -59,8 +59,6 @@ const Checkout = () => {
     phone: "",
     cvc: "",
     address: "",
-
-
   }
 
 
@@ -68,6 +66,7 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
     validationSchema: valuesSchema,
     initialValues,
     onSubmit:  (values, actions) => {
+        // PAYMENT SUCCES FUNCTION
         paymantSuccesAlert(setTimeout(() => {
             navigate("/")
           

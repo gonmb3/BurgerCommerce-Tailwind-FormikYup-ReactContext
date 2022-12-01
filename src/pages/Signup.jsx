@@ -10,7 +10,7 @@ import GoogleButton from 'react-google-button' // google button
 
 //react-toastify
 import { toast } from 'react-toastify';
-import Spinner from "./Spinner"
+import Spinner from "../components/Spinner"
 
 
 

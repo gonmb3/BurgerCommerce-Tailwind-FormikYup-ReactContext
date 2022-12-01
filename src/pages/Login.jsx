@@ -6,7 +6,7 @@ import { useAuthContext } from "../contexts/AuthContext"
 
 //react-toastify
 import { toast } from 'react-toastify';
-import Spinner from "./Spinner";
+import Spinner from "../components/Spinner";
 
 const Login = () => {
   // auth context

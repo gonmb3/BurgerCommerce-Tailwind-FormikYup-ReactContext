@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { useProductContext } from '../contexts/ProductContext'
-import Product from './Product';
-import Hero from './Hero';
-import FilterButtons from './FilterButtons';
+import Product from '../pages/Product';
+import Hero from '../components/Hero';
+import FilterButtons from '../components/FilterButtons';
 
 
 
 
 
 const Home = () => {
-    //products DATA
+    //products DATA product context
     const { products } = useProductContext();
 
     const [filtered, setFiltered] = useState(products)

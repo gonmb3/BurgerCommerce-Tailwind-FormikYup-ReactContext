@@ -1,18 +1,18 @@
 import { Route, Routes } from 'react-router-dom'
 
 import Header from './components/Header';
-import Home from './components/Home'
-import ProductDetails from './components/ProductDetails';
+import Home from './pages/Home'
+import ProductDetails from './pages/ProductDetails';
 import Sidebar from './components/Sidebar';
-import Signup from './components/Signup';
-import Login from './components/Login';
 
 // protected routes
 import ProtectedRoutes from './components/ProtectedRoutes';
 
 //react toastify
 import { ToastContainer } from 'react-toastify';
-import Checkout from './components/Checkout';
+import Checkout from './pages/Checkout';
+import Login from './pages/Login';
+import SignUp from './pages/Signup';
 
 
 
@@ -35,7 +35,7 @@ const App = () => {
             <Route path="/product/:id" element={<ProtectedRoutes>   <ProductDetails/> </ProtectedRoutes> }/>
             <Route path="/checkout" element={<ProtectedRoutes>   <Checkout/> </ProtectedRoutes> }/>
             <Route path="/login" element={<Login/>}/>
-            <Route path="/signup" element={<Signup/>}/>
+            <Route path="/signup" element={<SignUp/>}/>
             
           </Routes>
 
