@@ -3,7 +3,7 @@ import { FaPlus } from "react-icons/fa"
 import {AiTwotoneStar} from "react-icons/ai"
 
 import {  Link } from "react-router-dom";
-import { useCartContext } from "../contexts/CartContext";
+import { useCartContext } from "../context/CartContext";
 
 import { toast } from 'react-toastify';
 

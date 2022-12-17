@@ -2,7 +2,7 @@ import { useFormik } from "formik" /* ---- FORMIK*/
 import { Link, useNavigate } from "react-router-dom"
 import * as Yup from "yup"               /* ---- YUP VALIDATION*/
 // auth context
-import { useAuthContext } from "../contexts/AuthContext"
+import { useAuthContext } from "../context/AuthContext"
 
 //react-toastify
 import { toast } from 'react-toastify';

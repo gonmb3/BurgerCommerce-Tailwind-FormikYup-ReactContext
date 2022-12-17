@@ -1,7 +1,7 @@
 import { useState } from 'react'; //react hook 
 import { useNavigate } from 'react-router-dom'; // react router dom hook
 
-import { useCartContext } from '../contexts/CartContext'; // cart context
+import { useCartContext } from '../context/CartContext'; // cart context
 
 import { useFormik } from "formik" /* ---- FORMIK*/
 import * as Yup from "yup"               /* ---- YUP VALIDATION*/
@@ -11,7 +11,6 @@ import imgPaymants from "../assets/img/img-paymant.png" //img
 import uruFlag from "../assets/img/uruguay-flag.jpg" //img
 
 import Swal from 'sweetalert2' // sweetalert2
-import Spinner from '../components/Spinner';
 
 
 const Checkout = () => {
@@ -42,12 +41,12 @@ const Checkout = () => {
 // FORMIK VALIDATION
     // YUP VALUES SCHEMA
     const valuesSchema = Yup.object({
-    name: Yup.string().min(5).max(26, "Max. 26 characters").required(),
-    card: Yup.number().positive().min(15).required(),
-    date: Yup.number().positive().required().min(3),
-    phone: Yup.number().positive().required().min(8),
+    name: Yup.string().min(5).max(26).required(),
+    card: Yup.number().min(6).positive().min(15).required(),
+    date: Yup.number().min(4).required(),
+    phone: Yup.number().min(7).required(),
     address: Yup.string().required().min(6),
-    cvc: Yup.number().positive().required().min(3),
+    cvc: Yup.number().required().min(4),
 })
 
 
@@ -95,7 +94,7 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
                          type="text" 
                         id="name" 
                         name="name"
-                        className={`${errors.name && touched.name ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3  pl-2 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
+                        className={`${errors.name && touched.name ? "border border-red-600" : ""}  w-full rounded-md px-2 py-3  pl-2 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
                            placeholder="Full Name" 
                         />
                         <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
@@ -115,7 +114,7 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
                             type="text" 
                             id="card" 
                             name="card"
-                            className={`${errors.card && touched.card ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3  pl-8 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
+                            className={`${errors.card && touched.card ? "border border-red-600" : ""}  w-full rounded-md px-2 py-3  pl-8 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
                               placeholder="xxxx-xxxx-xxxx-xxxx" 
                             />
 
@@ -133,7 +132,7 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
                          onChange={handleChange}
                         type="text" 
                         name="date" 
-                        className={`${errors.date && touched.date ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3  pl-2 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
+                        className={`${errors.date && touched.date ? "border border-red-600" : ""}  w-full rounded-md px-2 py-3  pl-2 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
                          placeholder="MM/YY"
                           />
 
@@ -143,7 +142,7 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
                          onChange={handleChange}
                         type="text" 
                         name="cvc"
-                        className={`${errors.cvc && touched.cvc ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3  pl-2 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
+                        className={`${errors.cvc && touched.cvc ? "border border-red-600" : ""}  w-full rounded-md px-2 py-3  pl-2 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
                           placeholder="CVC" 
                           />
                     </div>
@@ -157,7 +156,7 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
                              type="text"
                               id="address" 
                               name="address" 
-                              className={`${errors.address && touched.address ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3  pl-11 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
+                              className={`${errors.address && touched.address ? "border border-red-600" : ""}  w-full rounded-md px-2 py-3  pl-11 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
                                placeholder="Address" 
                                />
                             <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
@@ -173,7 +172,7 @@ const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useF
                              type="text"
                               id="phone" 
                               name="phone" 
-                              className={`${errors.phone && touched.phone ? "border border-red-600" : ""}  w-full rounded-md border border-gray-200 px-2 py-3  pl-2 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
+                              className={`${errors.phone && touched.phone ? "border border-red-600" : ""}  w-full rounded-md px-2 py-3  pl-2 text-sm shadow-sm outline-none md:text-[13px] text-[11px] focus:z-10  ` }
                              placeholder="Phone Number" 
                             />
                             

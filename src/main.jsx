@@ -4,13 +4,13 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './index.css'
 //product provider context
-import { ProductProvider } from './contexts/ProductContext'
+import { ProductProvider } from './context/ProductContext'
 //sidebar provider context
-import { SidebarProvider } from './contexts/SidebarContext'
+import { SidebarProvider } from './context/SidebarContext'
 //cart provider context
-import { CartProvider } from './contexts/CartContext'
+import { CartProvider } from './context/CartContext'
 //auth provider context
-import { AuthProvider } from './contexts/AuthContext'
+import { AuthProvider } from './context/AuthContext'
 
 // ract toastyfy
 import 'react-toastify/dist/ReactToastify.css';

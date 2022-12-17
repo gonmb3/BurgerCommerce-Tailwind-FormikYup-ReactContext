@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams, useLocation, Link } from "react-router-dom"
-import { useCartContext } from "../contexts/CartContext";
-import { useProductContext } from "../contexts/ProductContext";
+import { useCartContext } from "../context/CartContext";
+import { useProductContext } from "../context/ProductContext";
 import {IoMdArrowRoundBack} from "react-icons/io"
 
 import { toast } from 'react-toastify';

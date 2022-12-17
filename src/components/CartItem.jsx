@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { IoMdAdd, IoMdRemove } from 'react-icons/io'
 import { BsTrash } from "react-icons/bs"
-import { useCartContext } from '../contexts/CartContext'
+import { useCartContext } from '../context/CartContext'
 
 const CartItem = ({ product }) => {
     // destructure product

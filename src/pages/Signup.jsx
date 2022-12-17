@@ -1,4 +1,4 @@
-import { useAuthContext } from "../contexts/AuthContext" // auth context
+import { useAuthContext } from "../context/AuthContext" // auth context
 
 import { useFormik } from "formik" /* ---- FORMIK*/
 import * as Yup from "yup"               /* ---- YUP VALIDATION*/

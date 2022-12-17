@@ -1,18 +1,17 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 
-import { useSidebarContext } from '../contexts/SidebarContext'
+import { useSidebarContext } from '../context/SidebarContext'
 
-import { useCartContext } from '../contexts/CartContext'
+import { useCartContext } from '../context/CartContext'
 
 import logo from "../assets/img/burger-logo.jpg"
 import { AiOutlineShoppingCart } from "react-icons/ai"
-import { FiLogIn } from "react-icons/fi"
 
 import { VscAccount } from "react-icons/vsc"
 
 import { useEffect } from 'react';
-import { useAuthContext } from '../contexts/AuthContext';
+import { useAuthContext } from '../context/AuthContext';
 
 
 const Header = () => {

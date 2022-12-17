@@ -1,22 +1,51 @@
+import { useEffect, useRef } from "react";
+
+import { Link } from "react-router-dom";
+import { useCartContext } from "../context/CartContext";
+
+import { useSidebarContext } from "../context/SidebarContext"
+import CartItem from './CartItem';
+
 import { FaRegTrashAlt } from "react-icons/fa";
 import { IoMdCloseCircleOutline } from "react-icons/io"
-import { Link } from "react-router-dom";
-import { useCartContext } from "../contexts/CartContext";
-
-import { useSidebarContext } from "../contexts/SidebarContext"
-import CartItem from './CartItem';
 
 
 const Sidebar = () => {
   //sidebar context
-  const { isOpen, handleClose } = useSidebarContext();
+  const { isOpen, handleClose, setIsOpen } = useSidebarContext();
   //cart context
   const { cart, clearCart, total } = useCartContext();
+
+       /*-----Menu CLOSED on scroll  */
+       useEffect(() => {
+        window.addEventListener("scroll", () => {
+          setIsOpen(false)
+        })
+    }, [])
+
+  
+
+            /*----- click outside close sidebar */
+            let menuRef = useRef();
+
+            useEffect(() => {
+                let handler = e => {
+                    if (!menuRef.current.contains(e.target)) {
+                      setIsOpen(false)
+                    }
+                }
+                document.addEventListener("mousedown", handler);
+                return () => {
+                    document.removeEventListener("mousedown", handler)
+                }
+            }, []);
 
 
   return (
     // sidebar open/close 
-    <div className={`${isOpen ? "right-0" : "-right-full"} "w-full bg-gray-900 fixed top-0 
+    <div 
+    ref={menuRef}
+    className={`${isOpen ? "right-0" : "-right-full"} "w-full bg-gray-900 fixed top-0 
      h-screen shadow-2xl md:w-[40vw] xl:max-w-[30vw] w-[70vw] transition-all duration-300 z-20 px-4 " `}>
 
       <div className="flex items-center justify-between py-6 border-b">
@@ -45,7 +74,9 @@ const Sidebar = () => {
             </div>
 
             <Link to="/checkout">
-            <div className="flex cursor-pointer justify-center items-center mt-5 p-2 bg-green-800 hover:bg-red-600 duration-300 w-[50%] mx-auto rounded-md">
+            <div
+            onClick={() => setIsOpen(false)}
+             className="flex cursor-pointer justify-center items-center mt-5 p-2 bg-green-800 hover:bg-red-600 duration-300 w-[50%] mx-auto rounded-md">
                   <button className="text-[14px] ">CHECKOUT</button>
                </div>
             </Link>

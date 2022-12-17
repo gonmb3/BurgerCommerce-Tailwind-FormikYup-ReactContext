@@ -3,12 +3,12 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAMgEHqilXOC38Tvv4llKdki6OybcjD76g",
-  authDomain: "ecommerce-burgers.firebaseapp.com",
-  projectId: "ecommerce-burgers",
-  storageBucket: "ecommerce-burgers.appspot.com",
-  messagingSenderId: "6578964734",
-  appId: "1:6578964734:web:90fdc1e345eb4b757afdaf"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDE_ID,
+  appId: import.meta.env.VITE_APP_ID
 
 };
 
